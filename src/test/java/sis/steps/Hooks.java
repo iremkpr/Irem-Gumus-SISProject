@@ -1,11 +1,10 @@
 package sis.steps;
 
-import com.neotech.testbase.BaseClass;
-import com.neotech.utils.CommonMethods;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import sis.testbase.BaseClass;
+import sis.utils.CommonMethods;
 
 public class Hooks extends CommonMethods {
 
