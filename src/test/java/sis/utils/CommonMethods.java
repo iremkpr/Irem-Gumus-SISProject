@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,6 +17,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -47,6 +49,15 @@ public class CommonMethods extends PagesInitializer {
 		element.clear();
 		element.sendKeys(text);
 	}
+    public static boolean isAlertPresent(WebDriver driver) {
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
 
 	/**
 	 * This method checks if a radio/check box is enabled, then clicks on the
@@ -375,6 +386,33 @@ public class CommonMethods extends PagesInitializer {
 
 		return sdf.format(date);
 	}
+	public void tabSelection(List<WebElement> tabs,String tabName) {
+		wait(1);
+		for(WebElement t:tabs) {
+			if(t.toString().equals(tabName)) {
+				click(t);
+				wait(1);
 
+				break;
+				
+			}
+			wait(1);
+		}
+		wait(1);
+
+	}
+	public void tabValidaton(WebElement element,String tabname) {
+		
+		if(element.isDisplayed()) {
+			Assert.assertTrue(tabname+" is displayed. Test Passed!",element.isDisplayed());
+			System.out.println(tabname+" is displayed. Test Passed!");
+		}
+		else {
+			Assert.assertTrue(tabname+" is not displayed. Test Failed!",element.isDisplayed());
+			System.out.println(tabname+" is not displayed. Test Failed!");
+		}
+		wait(1);
+	
+	}
 	
 }
