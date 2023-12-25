@@ -6,7 +6,7 @@ import io.cucumber.java.Scenario;
 import sis.testbase.BaseClass;
 import sis.utils.CommonMethods;
 
-public class Hooks extends CommonMethods {
+public class Hooks  {
 
 	@Before
 	public static void startUp() throws InterruptedException {

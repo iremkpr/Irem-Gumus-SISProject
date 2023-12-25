@@ -16,12 +16,13 @@ public class loginValidation extends CommonMethods {
 	public void i_click_the_login_button() {
 	    // Write code here that turns the phrase above into concrete actions
 	    click(login.loginButton);
+	    //jsClick(login.loginButton);
 	    wait(1);
 	}
 	@Then("I validate that Student Information Page Exist")
 	public void i_validate_that_student_information_page_exist() {
 	    // Write code here that turns the phrase above into concrete actions
-		Assert.assertTrue("Logo is not exist",login.neoLogo.isDisplayed());
+		Assert.assertTrue("Logo is not exist",home.neoLogo.isDisplayed());
 	   
 	}
 	
@@ -38,8 +39,8 @@ public class loginValidation extends CommonMethods {
 
 	@Then("I validate Student Information Page")
 	public void i_validate_student_information_page() {
-		if(login.neoLogo.isDisplayed()) {
-			Assert.assertTrue("Student Information Page not Opened.Test Failed!",login.neoLogo.isDisplayed());
+		if(home.neoLogo.isDisplayed()) {
+			Assert.assertTrue("Student Information Page not Opened.Test Failed!",home.neoLogo.isDisplayed());
 			System.out.println("Student Information Page Exist. Test Passed!");
 		}
 	    
@@ -50,8 +51,8 @@ public class loginValidation extends CommonMethods {
 	@Then("I validate Announcement is visible")
 	public void i_validate_announcement_is_visible() {
 	    // Write code here that turns the phrase above into concrete actions
-		if(login.anouncment.isDisplayed()) {
-			Assert.assertEquals("Announcement is not visible! Test Failed","Add New Announcement",login.anouncment.getText());
+		if(home.anouncment.isDisplayed()) {
+			Assert.assertEquals("Announcement is not visible! Test Failed","Add New Announcement",home.anouncment.getText());
 			System.out.println("Announcement is visible");
 		}
 	}

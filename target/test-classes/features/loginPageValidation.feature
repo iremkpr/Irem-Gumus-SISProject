@@ -1,7 +1,7 @@
 @login
 Feature: Login Page Validation
   
-  @positive 
+  @positive  @loginpositive
   Scenario Outline: Login Page Validatiton with valid data 
     When I entered the username "<username>" 
     And I entered the password "<password>" 

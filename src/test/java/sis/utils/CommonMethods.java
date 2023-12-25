@@ -387,18 +387,15 @@ public class CommonMethods extends PagesInitializer {
 		return sdf.format(date);
 	}
 	public void tabSelection(List<WebElement> tabs,String tabName) {
-		wait(1);
 		for(WebElement t:tabs) {
-			if(t.toString().equals(tabName)) {
-				click(t);
-				wait(1);
 
+			if(t.getText().equals(tabName)) {
+				click(t);
+				
 				break;
 				
 			}
-			wait(1);
 		}
-		wait(1);
 
 	}
 	public void tabValidaton(WebElement element,String tabname) {
