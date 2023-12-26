@@ -227,6 +227,7 @@ public class CommonMethods extends PagesInitializer {
 		for (String handle : handles) {
 			if (!mainWindow.equals(handle)) {
 				driver.switchTo().window(handle);
+				driver.manage().window().maximize();
 				break;
 			}
 		}
@@ -411,5 +412,6 @@ public class CommonMethods extends PagesInitializer {
 		wait(1);
 	
 	}
+	
 	
 }
