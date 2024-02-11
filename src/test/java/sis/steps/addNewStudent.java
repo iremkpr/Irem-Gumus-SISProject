@@ -22,6 +22,9 @@ public class addNewStudent extends CommonMethods{
 		click(student.ssn);
 		selectDropdown(student.gradeLevel,GradeLevel);
 		
+		
+		click(student.race);
+		click(student.asian);
 		click(student.submit);
 		wait(1);
 

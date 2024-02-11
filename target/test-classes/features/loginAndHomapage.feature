@@ -1,5 +1,5 @@
 
-@homePageValidation
+@homePageValidation @smoke @regression
 Feature: Successful Login and Homepage Validation
 
   @homePositive 
@@ -20,13 +20,39 @@ Feature: Successful Login and Homepage Validation
     When I entered the username "<username>" 
     And I entered the password "<password>" 
     And I Click the Login button
-    Then I validate alert
    	
    	Examples:
      	|username|password	 |
-   	| 			 |			   	 |
-   	|	Admin	 |					 |
-    |				 |Neotech$123|
-   	| Neo		 | neo123		 |
-   	
-
+	   	| 			 |			   	 |
+	   	|	Admin	 |					 |
+	    |				 |Neotech$123|
+	   	| Neo		 | neo123		 |
+	   	
+  @newTeacherLogin 	
+  Scenario Outline: Login with valid Teacher credentials 
+    When I entered the username "<username>" 
+    And I entered the password "<password>" 
+	  And I Click the Login button
+	  Then I validate the Teachers name "<profileName>"
+	
+	
+		
+	   	Examples:
+     	|	username		|password	 | profileName|
+     	|	iremGumus16	| iremkop	 | irem Gumus	|
+	
+  @ParentLogin 	
+  Scenario Outline: Login with valid Parent credentials 
+    When I entered the username "<username>" 
+    And I entered the password "<password>" 
+	  And I Click the Login button
+	  Then I validate the all Tabs
+	  And I validate the Parents name "<FullName >" and "<Address>"
+	
+	
+		
+	   	Examples:
+     	|	username		|password	 | 		FullName		| Address|
+     	|	diana				| diana	 	 | Princess Diana	|	123 Sessame St NY, 12345|
+     	
+	

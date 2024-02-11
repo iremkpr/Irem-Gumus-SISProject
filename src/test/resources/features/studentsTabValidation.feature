@@ -1,4 +1,4 @@
-@studentValidation
+@studentValidation @smoke @regression
 Feature: Student s subtab validation
 
   Scenario: Login and Validate subtab existence
