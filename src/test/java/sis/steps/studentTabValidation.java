@@ -15,9 +15,7 @@ public class studentTabValidation extends CommonMethods{
 public void i_enter_the_username_and_password() {
     // Write code here that turns the phrase above into concrete actions
     sendText(login.username, ConfigsReader.getProperty("username"));
-    wait(1);
     sendText(login.password, ConfigsReader.getProperty("password"));
-    wait(1);
 }
 @Then("I Clicked the Login button")
 public void i_click_the_login_button() {

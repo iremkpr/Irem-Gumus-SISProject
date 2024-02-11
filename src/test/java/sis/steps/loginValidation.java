@@ -63,7 +63,6 @@ public class loginValidation extends CommonMethods {
 		Assert.assertTrue("Url is not contains MainPage.aspx. Test Failed", urlCheck);
 	}
 
-	@Then("I validate alert")
 	public void i_validate_student_information_page_is_not_exist() {
 		try {
 	        if (isAlertPresent(driver)) {
@@ -91,6 +90,68 @@ public class loginValidation extends CommonMethods {
 	        // Handle the exception, if needed
 	    }
 	}
+
+	@When("I enter the {string} , {string} and click the Login button")
+	public void i_enter_the_and_click_the_login_button(String username, String password) {
+	    // Write code here that turns the phrase above into concrete actions
+
+	    sendText(login.username,username );
+	    sendText(login.password, password);
+	    click(login.loginButton);
+	
+	}
+
+
+@Then("I validate the student {string}, {string}, {string}, {string}")
+public void i_validate_the_student(String StudentId, String StudentName, String GradeSection, String UserName) {
+    // Write code here that turns the phrase above into concrete actions
+	String existId= student.id.getText();
+	String existName= student.stdName.getText();
+	String existGrade= student.grade.getText();
+	String existUserName= student.userName.getText();
+	if(existId.equals(StudentId)) {
+		Assert.assertTrue("Id is not as expected", existId.equals(StudentId));
+		System.out.println("Id is as expected");
+	}
+	if (existName.equals(StudentName)) {
+		Assert.assertTrue("Student Name is not as expected", existName.equals(StudentName));
+		System.out.println("Student Name is as expected");
+
+	}
+	if(existGrade.equals(GradeSection)) {
+		Assert.assertTrue("Grade Section is not as expected", existGrade.equals(GradeSection));
+		System.out.println("Grade Section is as expected");
+
+	}
+	if(existUserName.equals(UserName)) {
+		Assert.assertTrue("User Name is not as expected",existUserName.equals(UserName));
+		System.out.println("User Name is as expected");
+
+	}
+	
+
+}
+
+	
+	@Then("I validate the Teachers name {string}")
+	public void i_validate_the_teachers_name(String profileName) {
+	    // Write code here that turns the phrase above into concrete actions
+			String name=home.userName.getText();
+		if(name.equals(profileName)) {
+			Assert.assertTrue("Teacher name is not as expected!Test Failed", name.equals(profileName));
+			System.out.println("Teacher name as expected!Test Passed");
+		}
+	}
+	@Then("I validate the all Tabs")
+	public void i_validate_the_all_tabs() {
+	    // Write code here that turns the phrase above into concrete actions
+	}
+	@Then("I validate the Parents name {string} and {string}")
+	public void i_validate_the_parents_name_and(String FullName, String Address) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+
 
 
 

@@ -1,4 +1,4 @@
-@login
+@login @smoke 
 Feature: Login Page Validation
   
   @positive  @loginpositive
@@ -30,4 +30,16 @@ Feature: Login Page Validation
     Given I enter the username and password
     And I Click the Login button
     And I clicked the Student Tab
-#    Then I validated each individual sub-tab
+    Then I validated each individual sub-tab
+
+
+	@newStudentLogin
+  Scenario Outline: Login Page Validatiton with valid new user data 
+			When I enter the "<username>" , "<password>" and click the Login button
+			Then I validate the student "<StudentId>", "<StudentName>", "<GradeSection>", "<UserName>"
+			
+			
+			
+			Examples:
+   		|username| password |StudentId|		StudentName		|GradeSection|UserName|
+			| Gumus	 | iremkop	|		944		|		Irem Gumus		|12th Grade	 |Gumus		|

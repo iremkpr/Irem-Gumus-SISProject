@@ -31,6 +31,9 @@ public class HomePage extends CommonMethods{
 	@FindBy(id="//table[@id='parentTable']//tr[1]//input[1]")
 	public WebElement Parental;
 	
+	@FindBy(id="lUser")
+	public WebElement userName;
+
 	
 	
 	public HomePage() {
